@@ -19,7 +19,7 @@ public class LogsConsumer {
       @Override
       public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
         try {
-        	System.out.println(body.toString());
+        	System.out.println(new String(body, "UTF-8"));
         } finally {
             channel.basicAck(envelope.getDeliveryTag(), false);
         }
